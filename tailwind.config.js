@@ -15,6 +15,9 @@ export default {
         "brand-700": "#005fb6",  // button hover/focus
         "brand-900": "#0a2433",
         accent: "#00c6b1"
+      },
+      backgroundImage: {
+        "pyramids": "url('/pyramids.jpg')",
       }
     },
   },
