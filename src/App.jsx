@@ -1,12 +1,21 @@
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-
 import DieGrid from "./components/DieGrid";
 import Button from "./components/Button";
 
 function App() {
   const [dice, setDice] = useState(startingDice());
+  const [tenzies, setTenzies] = useState(false);
+  const [buttonText, setButtonText] = useState("Roll")
+
+  useEffect(() => {
+    const firstValue = dice[0].value;
+    if (dice.every((die) => die.value === firstValue && die.isHeld)) {
+      setTenzies(true);
+      setButtonText("Play again?")
+      console.log("You won!")
+    }
+  }, [dice]);
 
   function getRandomDieValue() {
     return Math.ceil(Math.random() * 6);
@@ -35,7 +44,7 @@ function App() {
       <h1 className="text-4xl font-black md:text-5xl lg:text-7xl">Tenzies</h1>
       <p className="max-w-prose text-balance text-center text-slate-700">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
       <DieGrid dice={dice} holdDie={holdDie} />
-      <Button onClick={rerollDice} />
+      <Button onClick={rerollDice} buttonText={buttonText} />
     </main>
   )
 }
