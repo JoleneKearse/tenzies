@@ -1,7 +1,18 @@
-import Die from "./Die"
+import { useMemo } from "react";
 import ConfettiExplosion from "react-confetti-explosion";
+import Die from "./Die"
 
 const DieGrid = ({ dice, holdDie, tenzies, isAnimating }) => {
+  const confettiColors = useMemo(() => [
+    "#481CA6",
+    "#b9008e",
+    "#f42c6c",
+    "#ff774f",
+    "#ffba49",
+    "#f9f871",
+    "#00d2b1",
+  ], []);
+
   return (
     <article className="grid grid-cols-5 grid-rows-[auto_auto] gap-10 mx-auto mb-6 justify-items-center items-center">
       {dice.map((die) => (
@@ -21,21 +32,10 @@ const DieGrid = ({ dice, holdDie, tenzies, isAnimating }) => {
           particleCount={250}
           height={'300vh'}
           width={1600}
-          colors={
-            [
-              "#481CA6",
-              "#b9008e",
-              "#f42c6c",
-              "#ff774f",
-              "#ffba49",
-              "#f9f871",
-              "#00d2b1",
-              // "#885EE4"
-
-            ]}
+          colors={confettiColors}
         />}
     </article>
   )
 }
 
-export default DieGrid
+export default DieGrid;

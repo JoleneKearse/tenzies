@@ -17,8 +17,7 @@ export default {
 					900: "#0F0623",
 					950: "#080311",
 				},
-				accent: "#53297E",
-				"accent-2": "#7B51A6",
+				"accent": "#7B51A6",
 			},
 			backgroundImage: {
 				pyramids: "url('/pyramids.webp')",
@@ -43,7 +42,7 @@ export default {
 				},
 			},
 			animation: {
-				scale: "scalewebp0ms ease-in-out",
+				scale: "scale 1000ms ease-in-out",
 			},
 			textStroke: {
 				DEFAULT: "1px",

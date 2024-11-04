@@ -5,9 +5,20 @@ import Button from "./components/Button";
 import RollCount from "./components/RollCount";
 
 function App() {
+  const getRandomDieValue = () => {
+    return Math.ceil(Math.random() * 6);
+  };
+
+  const startingDice = () => {
+    return Array.from({ length: 10 }, () => ({
+      value: getRandomDieValue(),
+      isHeld: false,
+      id: nanoid(),
+    }));
+  }
+  
   const [dice, setDice] = useState(startingDice());
   const [tenzies, setTenzies] = useState(false);
-  const [buttonText, setButtonText] = useState("Roll");
   const [isAnimating, setIsAnimating] = useState(false);
   const [rollCount, setRollCount] = useState(0);
 
@@ -15,7 +26,6 @@ function App() {
     const firstValue = dice[0].value;
     if (dice.every((die) => die.value === firstValue && die.isHeld)) {
       setTenzies(true);
-      setButtonText("New Game");
     }
   }, [dice]);
 
@@ -29,18 +39,6 @@ function App() {
     setButtonText("Roll");
     setRollCount(0);
   };
-
-  function getRandomDieValue() {
-    return Math.ceil(Math.random() * 6);
-  }
-
-  function startingDice() {
-    return Array.from({ length: 10 }, () => ({
-      value: getRandomDieValue(),
-      isHeld: false,
-      id: nanoid(),
-    }));
-  }
 
   const handleClick = () => {
     if (tenzies) {
@@ -81,7 +79,7 @@ function App() {
       />🫰
       <Button
         onClick={handleClick}
-        buttonText={buttonText}
+        text={tenzies ? "New Game" : "Roll"}
       />
     </main>
   );

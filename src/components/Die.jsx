@@ -47,4 +47,4 @@ const Die = ({ value, isHeld, id, holdDie, isAnimating }) => {
   )
 }
 
-export default Die
+export default Die;
