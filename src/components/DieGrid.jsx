@@ -22,14 +22,14 @@ const DieGrid = ({ dice, holdDie, tenzies }) => {
           width={1600}
           colors={
             [
-              "#009ff6",
-              "#0a2433",
-              "#005fb6",
+              "#481CA6",
+              "#b9008e",
+              "#f42c6c",
+              "#ff774f",
+              "#ffba49",
               "#f9f871",
-              "#90d577",
-              "#007c79",
-              "#e99b26",
-              "#6eebb4"
+              "#00d2b1",
+              "#885EE4"
 
             ]}
         />}
