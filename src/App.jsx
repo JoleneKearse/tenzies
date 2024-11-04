@@ -36,7 +36,6 @@ function App() {
   const restartGame = () => {
     setDice(startingDice());
     setTenzies(false);
-    setButtonText("Roll");
     setRollCount(0);
   };
 
