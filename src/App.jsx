@@ -8,6 +8,7 @@ function App() {
   const [tenzies, setTenzies] = useState(false);
   const [buttonText, setButtonText] = useState("Roll");
   const [isAnimating, setIsAnimating] = useState(false);
+  const [rollCount, setRollCount] = useState(0);
 
   useEffect(() => {
     const firstValue = dice[0].value;
@@ -16,6 +17,12 @@ function App() {
       setButtonText("New Game");
     }
   }, [dice]);
+
+  console.log(rollCount);
+
+  const updateRollCount = () => {
+    setRollCount((prevRollCount) => prevRollCount + 1);
+  }
 
   const restartGame = () => {
     setDice(startingDice());
@@ -45,6 +52,7 @@ function App() {
         die.isHeld ? die : { ...die, value: getRandomDieValue() }
       )
     );
+    updateRollCount();
     setTimeout(() => {
       setIsAnimating(false);
     }, 1000);
