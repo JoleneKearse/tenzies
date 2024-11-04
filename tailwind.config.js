@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+	content: ["./index.html", "./src/**/*.{js,jsx}"],
 	theme: {
 		extend: {
 			colors: {
@@ -17,7 +17,7 @@ export default {
 					900: "#0F0623",
 					950: "#080311",
 				},
-				"accent": "#7B51A6",
+				accent: "#7B51A6",
 			},
 			backgroundImage: {
 				pyramids: "url('/pyramids.webp')",
