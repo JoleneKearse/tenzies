@@ -17,6 +17,8 @@ export default {
 					900: "#0F0623",
 					950: "#080311",
 				},
+        "accent": "#53297E",
+        "accent-2": "#7B51A6",
 			},
 			backgroundImage: {
 				pyramids: "url('/pyramids.jpg')",
@@ -41,7 +43,7 @@ export default {
         },
       },
       animation: {
-        scale: "scale 1s ease-in-out",
+        scale: "scale 500ms ease-in-out",
       },
 		},
 	},

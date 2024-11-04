@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import DieGrid from "./components/DieGrid";
 import Button from "./components/Button";
+import RollCount from "./components/RollCount";
 
 function App() {
   const [dice, setDice] = useState(startingDice());
@@ -18,8 +19,6 @@ function App() {
     }
   }, [dice]);
 
-  console.log(rollCount);
-
   const updateRollCount = () => {
     setRollCount((prevRollCount) => prevRollCount + 1);
   }
@@ -28,6 +27,7 @@ function App() {
     setDice(startingDice());
     setTenzies(false);
     setButtonText("Roll");
+    setRollCount(0);
   };
 
   function getRandomDieValue() {
@@ -68,11 +68,11 @@ function App() {
 
   return (
     <main className="w-72 h-4/5 bg-pyramids bg-bottom rounded-3xl my-32 mx-auto p-10 flex flex-col justify-center items-center gap-5 md:w-1/2 md:gap-8 lg:w-2/3 lg:gap-12">
-      <h1 className="text-4xl font-black text-brand-800 md:text-5xl lg:text-7xl">Tenzies</h1>
-      <p className="max-w-prose text-balance text-center text-brand-50 bg-brand-400 py-5 rounded-lg shadow-lg font-medium">
+      <h1 className="text-4xl font-black text-brand-100 md:text-5xl lg:text-7xl">Tenzies</h1>
+      {tenzies ? <RollCount tenzies={tenzies} rollCount={rollCount} /> : <p className="max-w-prose text-balance text-center text-brand-50 bg-brand-400 py-5 rounded-lg shadow-lg font-medium">
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
-      </p>
+      </p>}
       <DieGrid
         dice={dice}
         holdDie={holdDie}

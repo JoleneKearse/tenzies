@@ -30,7 +30,7 @@ const DieGrid = ({ dice, holdDie, tenzies, isAnimating }) => {
               "#ffba49",
               "#f9f871",
               "#00d2b1",
-              "#885EE4"
+              // "#885EE4"
 
             ]}
         />}
