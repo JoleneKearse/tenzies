@@ -1,7 +1,7 @@
 import Die from "./Die"
 import ConfettiExplosion from "react-confetti-explosion";
 
-const DieGrid = ({ dice, holdDie, tenzies }) => {
+const DieGrid = ({ dice, holdDie, tenzies, isAnimating }) => {
   return (
     <article className="grid grid-cols-5 grid-rows-[auto_auto] gap-10 mx-auto mb-6 justify-items-center items-center">
       {dice.map((die) => (
@@ -11,6 +11,7 @@ const DieGrid = ({ dice, holdDie, tenzies }) => {
           isHeld={die.isHeld}
           holdDie={holdDie}
           id={die.id}
+          isAnimating={isAnimating}
         />
       ))}
       {tenzies &&

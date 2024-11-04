@@ -33,6 +33,16 @@ export default {
 				die5white: "url('/die-5-white.png')",
 				die6white: "url('/die-6-white.png')",
 			},
+      keyframes: {
+        scale: {
+          "0%": { transform: "scale(1)" },
+          "50%": { transform: "scale(0.9)" },
+          "100%": { transform: "scale(1.1)" },
+        },
+      },
+      animation: {
+        scale: "scale 1s ease-in-out",
+      },
 		},
 	},
 	plugins: [],

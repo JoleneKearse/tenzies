@@ -7,6 +7,7 @@ function App() {
   const [dice, setDice] = useState(startingDice());
   const [tenzies, setTenzies] = useState(false);
   const [buttonText, setButtonText] = useState("Roll");
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     const firstValue = dice[0].value;
@@ -15,8 +16,6 @@ function App() {
       setButtonText("New Game");
     }
   }, [dice]);
-
-  console.log(dice);
 
   const restartGame = () => {
     setDice(startingDice());
@@ -40,11 +39,15 @@ function App() {
     if (tenzies) {
       restartGame();
     }
+    setIsAnimating(true);
     setDice((prevDice) =>
       prevDice.map((die) =>
         die.isHeld ? die : { ...die, value: getRandomDieValue() }
       )
     );
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000);
   };
 
   const holdDie = (id) => {
@@ -66,6 +69,7 @@ function App() {
         dice={dice}
         holdDie={holdDie}
         tenzies={tenzies}
+        isAnimating={isAnimating}
       />🫰
       <Button
         onClick={handleClick}

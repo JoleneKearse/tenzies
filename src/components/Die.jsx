@@ -1,4 +1,4 @@
-const Die = ({ value, isHeld, id, holdDie }) => {
+const Die = ({ value, isHeld, id, holdDie, isAnimating }) => {
   const handleClick = () => {
     holdDie(id);
   };
@@ -37,7 +37,7 @@ const Die = ({ value, isHeld, id, holdDie }) => {
 
   return (
     <button
-      className={`rounded-lg w-11 h-11 shadow-2xl text-xl font-semibold bg-center bg-cover lg:w-16 lg:h-16 ${isHeld ? setHeldBackgroundImage(value) : setBackgroundImage(value)} `}
+      className={`rounded-lg w-11 h-11 shadow-2xl text-xl font-semibold bg-center bg-cover lg:w-16 lg:h-16 ${isHeld ? setHeldBackgroundImage(value) : setBackgroundImage(value)} ${isAnimating && !isHeld ? "animate-scale" : ""}`}
       id={id}
       onClick={handleClick}
       aria-label={`Die with a value of ${value}`}
